@@ -1,0 +1,16 @@
+elastic:
+  image: dockerfile/elasticsearch
+  ports:
+    - "9200:9200"
+    - "9300:9300"
+  volumes:
+    - docker_volumes/elasticsearch_data:/usr/local/elasticsearch/data
+api:
+  build: ./api
+  command: bundle exec rackup -p 4567 -b '0.0.0.0'
+  volumes:
+    - .:/api
+  ports:
+    - "4567:4567"
+  links:
+    - elastic
