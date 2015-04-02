@@ -10,6 +10,6 @@ ADD /Gemfile /api/Gemfile
 ADD /Gemfile.lock /api/Gemfile.lock
 RUN bundle install
 
-EXPOSE 4567
 
 ADD . /api
+EXPOSE 4567
