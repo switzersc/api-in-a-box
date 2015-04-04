@@ -9,7 +9,7 @@ api:
   build: ./api
   command: bundle exec rackup -p 4567 -o 0.0.0.0
   volumes:
-    - .:/api
+    - api:/api
   ports:
     - "4567:4567"
   links:
