@@ -7,7 +7,7 @@ elastic:
     - docker_volumes/elasticsearch_data:/usr/local/elasticsearch/data
 api:
   build: ./api
-  command: bundle exec rackup -p 4567 -b '0.0.0.0'
+  command: bundle exec rackup -p 4567 -o 0.0.0.0
   volumes:
     - .:/api
   ports:
