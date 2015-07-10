@@ -13,3 +13,5 @@ RUN bundle install
 EXPOSE 4567
 
 ADD . /api
+
+ENTRYPOINT ["bundle", "exec"]
