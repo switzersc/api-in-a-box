@@ -7,10 +7,13 @@ elastic:
     - docker_volumes/elasticsearch_data:/usr/local/elasticsearch/data
 api:
   build: ./api
-  command: "./deploy/deploy.sh"
+  command: bash ./deploy/deploy.sh
   volumes:
     - api:/api
   ports:
     - "4567:4567"
   links:
     - elastic
+  environment:
+    - ORIGIN_REPO=switzersc/atlanta-food-data
+    - ELASTIC_HOST=http://elastic:9200
