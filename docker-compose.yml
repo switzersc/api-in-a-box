@@ -6,11 +6,14 @@ elastic:
   volumes:
     - docker_volumes/elasticsearch_data:/usr/local/elasticsearch/data
 api:
-  build: .
-  command: bundle exec rackup -p 4567 -o 0.0.0.0
+  build: ./api
+  command: bash ./deploy/deploy.sh
   volumes:
-    - .:/api
+    - api:/api
   ports:
     - "4567:4567"
   links:
     - elastic
+  environment:
+    - ORIGIN_REPO=switzersc/atlanta-food-data
+    - ELASTIC_HOST=http://elastic:9200

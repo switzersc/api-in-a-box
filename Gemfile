@@ -1,5 +1,12 @@
 source "http://rubygems.org"
 
 gem 'sinatra'
+gem 'tux'
 gem 'pry'
 gem 'rest-client'
+gem 'httparty'
+gem 'faraday', '0.8.9' # requirement for stretcher
+gem 'stretcher'
+gem 'activesupport', '=4.0.1' # remote_table currently does not support 4.2.0
+gem 'remote_table'
+gem 'collection-json'
