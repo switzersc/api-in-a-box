@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # sleep because compose doesn't wait to make sure elastic is ready
 sleep 8
 

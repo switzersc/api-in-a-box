@@ -9,6 +9,7 @@ GEM
       tzinfo (~> 0.3.37)
     bond (0.5.1)
     coderay (1.1.0)
+    collection-json (0.1.7)
     excon (0.45.3)
     faraday (0.8.9)
       multipart-post (~> 1.2.0)
@@ -98,6 +99,7 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport (= 4.0.1)
+  collection-json
   faraday (= 0.8.9)
   httparty
   pry
