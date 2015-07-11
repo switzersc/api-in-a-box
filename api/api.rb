@@ -2,9 +2,6 @@ gem 'faraday', '0.8.9' # requirement for stretcher
 require "sinatra/base"
 require 'stretcher'
 require './resource_presenter'
-require 'pry'
-# require 'rest-client'
-# require 'json'
 
 class ApiInABox < Sinatra::Base
 

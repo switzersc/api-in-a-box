@@ -49,7 +49,6 @@ class FileGrabber
     p "Processing file #{name}"
     table = build_table(file)
 
-    # binding.pry
     docs = table.rows.map do |row|
         row.merge({"FILE_SOURCE"=>name, "_type"=>"resource"})
     end
@@ -68,4 +67,4 @@ class FileGrabber
   end
 end
 
-# FileGrabber.new().run
+FileGrabber.new().run
