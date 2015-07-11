@@ -17,7 +17,9 @@ class FileGrabber
 
   def run
     create_elastic_index
+    p "Getting contents from repo"
     @contents = get_contents
+    p "Got contents"
     @contents.each do |file|
       process_file(file)
     end
@@ -44,11 +46,8 @@ class FileGrabber
   def process_file(file)
     # create remote_table object for file contents
     name = file["name"]
+    p "Processing file #{name}"
     table = build_table(file)
-
-    # add "FILE_SOURCE" attribute to json rows
-    # row is already formatted in json with headers as keys and row values as the values,
-    # so just need to add source (for reference) and _type (for ES)
 
     # binding.pry
     docs = table.rows.map do |row|
@@ -57,8 +56,8 @@ class FileGrabber
     # add json docs in bulk to elasticsearch
     @server.index(@index).bulk_index(docs)
   rescue => e
-    p "encountered error parsing file #{file}: #{e}"
-    p "skipping file #{file}"
+    p "Encountered error parsing file #{file}: #{e}"
+    p "Skipping file #{file}"
   end
 
   # TODO add validations, exception handling

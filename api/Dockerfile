@@ -1,5 +1,7 @@
 FROM ruby:2.1.2
 
+MAINTAINER Shelby Switzer <shelbyswitzer@gmail.com>
+
 # Run updates
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev
 
@@ -15,4 +17,4 @@ EXPOSE 4567
 ADD . /api
 
 
-CMD ["./deploy/deploy.sh"]
+CMD ["./deploy/start.sh"]

@@ -7,7 +7,7 @@ elastic:
     - docker_volumes/elasticsearch_data:/usr/local/elasticsearch/data
 api:
   build: ./api
-  command: bash ./deploy/deploy.sh
+  command: bash ./deploy/start.sh
   volumes:
     - api:/api
   ports:
