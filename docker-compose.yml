@@ -1,10 +1,10 @@
 elastic:
-  image: dockerfile/elasticsearch
+  image: elasticsearch
   ports:
     - "9200:9200"
     - "9300:9300"
   volumes:
-    - docker_volumes/elasticsearch_data:/usr/local/elasticsearch/data
+    - elasticsearch_data:/usr/share/elasticsearch/data
 api:
   build: ./api
   command: bash ./deploy/start.sh
