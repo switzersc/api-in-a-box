@@ -4,7 +4,13 @@ API-in-a-Box is exactly what it sounds like. Say you have a handful of CSV files
 
 ## Setup
 
-To get started, clone this repo. 
+Before you get started, you must have Docker and Docker Compose installed:
+https://www.docker.com
+https://docs.docker.com/compose/install/
+
+Make sure your docker daemon is running by running `docker info`. You should see a long list of output, not an error about not being able to connect to the docker daemon.
+
+Next, clone this repo. 
 
 Then replace the environment variable `ORIGIN_REPO` in the `docker-compose.yml` file to point to the github repo (format: [username]/[repo]) you would like to pull data from. You may use the current repo "switzersc/atlanta-food-data" as an example.
 
