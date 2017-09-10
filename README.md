@@ -30,6 +30,10 @@ Now you can curl to get your data:
     
 If you're running on boot2docker, you will need to replace `localhost` with your boot2docker ip.
 
+You may need to specify a size to get data if you just see the metadata from the `/resources` request. Try:
+
+    curl http://localhost:4567/resources?size=50
+
 
 ## Using this API
 
