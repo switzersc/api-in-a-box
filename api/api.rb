@@ -6,8 +6,8 @@ require './resource_presenter'
 class ApiInABox < Sinatra::Base
 
   get "/resources" do
-    size = params[:size].to_i || 50
-    from = params[:from].to_i
+    size = params["size"] || "50"
+    from = params["from"].to_i
     search = server.index(:api).search(size: size, from: from)
     docs = search.documents
     mappings = server.index(:api).get_mapping["api"]["mappings"]["resource"]["properties"]
@@ -19,11 +19,13 @@ class ApiInABox < Sinatra::Base
   get "/resources/search" do
     if params["match_phrase"] == "true"
       params.delete("match_phrase")
-      size = params.delete(:size) || 50
-      from = params.delete(:from)
+      size = params.delete("size") || 50
+      from = params.delete("from")
       search = server.index(:api).search(size: size, from: from, query: {match_phrase: params})
     else
-      search = server.index(:api).search(query: {match: params})
+      present_params = params.select{|k,v| v.present?}
+      query_string = present_params.values.join(", ")
+      search = server.index(:api).search(query: {match: present_params})
     end
 
     docs = search.documents
