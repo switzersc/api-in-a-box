@@ -9,7 +9,7 @@ require 'remote_table'
 class FileGrabber
 
   def initialize(options={})
-    @repo = options[:repo] || ENV["ORIGIN_REPO"]
+    @repo = options[:repo] || ENV["ORIGIN_REPO"] || "switzersc/atlanta-food-data"
     @index = options[:index] || :api
     @host = ENV["ELASTIC_HOST"] || "http://localhost:9200"
     @server = Stretcher::Server.new(@host)

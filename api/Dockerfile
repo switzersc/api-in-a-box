@@ -17,4 +17,4 @@ EXPOSE 4567
 ADD . /api
 
 
-CMD ["./deploy/start.sh"]
+CMD bash ./deploy/start.sh

@@ -19,8 +19,8 @@ class ResourcePresenter
       if @queries
         builder.add_query("/resources/search", "search", prompt: "Search") do |query|
           # queries for each column name from CSVs
-          @queries.each do |q|
-            query.add_data q
+          @queries.keys.each do |query_name|
+            query.add_data query_name
           end
           # other useful queries
           query.add_data "match_phrase" # if you want to match the exact phrase given in another param, pass true

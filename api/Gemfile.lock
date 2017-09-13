@@ -45,6 +45,7 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     rack (1.6.0)
+    rack-cors (0.4.0)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
@@ -103,8 +104,12 @@ DEPENDENCIES
   faraday (= 0.8.9)
   httparty
   pry
+  rack-cors
   remote_table
   rest-client
   sinatra
   stretcher
   tux
+
+BUNDLED WITH
+   1.12.5
