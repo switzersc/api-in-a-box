@@ -14,7 +14,7 @@ RUN bundle install
 
 EXPOSE 4567
 
-ADD . /api
+COPY ./data_processor/file_grabber.rb /tmp/file_grabber.rb
 
 
 CMD bash ./deploy/start.sh
