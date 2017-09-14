@@ -11,3 +11,4 @@ gem 'activesupport', '=4.0.1' # remote_table currently does not support 4.2.0
 gem 'remote_table'
 gem 'collection-json'
 gem 'rack-cors'
+gem 'rerun'

@@ -1,4 +1,4 @@
-FROM ruby:2.1.2
+FROM ruby:2.2.5
 
 MAINTAINER Shelby Switzer <shelbyswitzer@gmail.com>
 
