@@ -22,10 +22,12 @@ class ApiInABox < Sinatra::Base
       size = params.delete("size") || 50
       from = params.delete("from")
       search = server.index(:api).search(size: size, from: from, query: {match_phrase: params})
-    else
+    elsif params.present?
       present_params = params.select{|k,v| v.present?}
       query_string = present_params.values.join(", ")
       search = server.index(:api).search(query: {match: present_params})
+    else
+      search = server.index(:api).search(size: 50)
     end
 
     docs = search.documents
