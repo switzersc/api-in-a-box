@@ -9,7 +9,7 @@ api:
   build: ./api
   command: bash ./deploy/start.sh
   volumes:
-    - api:/api
+    - ./api:/api
   ports:
     - "4567:4567"
   links:
